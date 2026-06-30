@@ -1,9 +1,10 @@
 ---
-title: 'We Help Business Grow'
+title: 'Schaaklessen'
 weight: 1
 background: 'images/kevin-bhagat-461952-unsplash.jpg'
-button: 'Our Work'
-buttonLink: 'work'
+button: 'Lessen'
+buttonLink: 'schaaklessen'
 ---
 
-Lorem ipsum dolor sit amet, et essent mediocritatem quo, choro volumus oporteat an mei. Numquam dolores mel eu, mea docendi omittantur et, mea ea duis erat. Elit melius cu ius. Per ex novum tantas putant, ei his nullam aliquam apeirian. Aeterno quaestio constituto sea an, no eum intellegat assueverit.
+Wij bieden lessen aan in groepsvorm. Je krijgt samen met andere enthousiaste spelers van jouw niveau schaaklessen van ervaren lesgevers.
+Je leert nieuwe technieken, strategieën en je leert ook nieuwe mensen kennen.

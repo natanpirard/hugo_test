@@ -1,9 +1,11 @@
 ---
-title: 'Our Difference'
+title: 'Onze doelen'
 weight: 2
 background: ''
-button: 'About Us'
+button: 'Over ons'
 buttonLink: 'about'
 ---
 
-Lorem ipsum dolor sit amet, et essent mediocritatem quo, choro volumus oporteat an mei. ipsum dolor sit amet, et essent mediocritatem quo,
+Wij willen in eerste intantie onze deelnemers op een plezierige manier beter leren schaken.
+Maar wij willen jullie ook andere skills bijbrengen. Zelfvertrouwen, beslissingen nemen, omgaan met tijdsdruk, ...
+zijn allemaal dingen waar je beter in zult worden.

@@ -32,23 +32,18 @@ theme = "hugo-hero-theme"
     meta_twitter_creator = "@zerostaticio"
 
 [[menu.main]]
-	name = "Services"
-	url = "/services/"
+    name = "Schaaklessen"
+    url = "/schaaklessen/"
     weight = 1
 
 [[menu.main]]
-    name = "Work"
-    url = "/work/"
+    name = "Over ons"
+    url = "/about/"
     weight = 2
 
 [[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 3
-
-[[menu.main]]
-    name = "History"
-    url = "/history/"
+    name = "Inschrijven"
+    url = "/inschrijven/"
     weight = 3
 
 [[menu.main]]
