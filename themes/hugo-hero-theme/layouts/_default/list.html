@@ -3,6 +3,10 @@
 
 {{ define "main" }}
 
+{{ if .Params.heroHeading }}
+  {{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "content" .) }}
+{{ end }}
+
 <div class="container pt-10 pb-6">
   <div class="row">
     <div class="col-12">

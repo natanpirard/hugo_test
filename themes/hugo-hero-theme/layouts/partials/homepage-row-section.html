@@ -1,0 +1,40 @@
+{{ $section := .section }}
+{{ $index := .index }}
+{{ $odd := eq (mod $index 2) 1 }}
+<div id="{{ if eq $index 0 }}home{{ else }}home-section-{{ $index }}{{ end }}" class="homepage-row strip {{ if $odd }}homepage-row-light{{ end }}">
+  <div class="container pt-17 pb-17">
+    <div class="row align-items-center">
+      {{ if $odd }}
+        <div class="col-12 col-md-6 order-md-1 homepage-row-text text-left">
+          <h2 class="text-primary text-capitalize">{{ $section.Title }}</h2>
+          <div class="text-dark">
+            {{ $section.Content }}
+          </div>
+          {{ if $section.Params.button }}
+            <a class="button" href="{{ $section.Params.buttonLink | relURL }}">{{ $section.Params.button }}</a>
+          {{ end }}
+        </div>
+        <div class="col-12 col-md-6 order-md-2 homepage-row-image">
+          {{ with $section.Params.background }}
+            <img src="{{ . | relURL }}" alt="{{ $section.Title }}" />
+          {{ end }}
+        </div>
+      {{ else }}
+        <div class="col-12 col-md-6 order-md-1 homepage-row-image">
+          {{ with $section.Params.background }}
+            <img src="{{ . | relURL }}" alt="{{ $section.Title }}" />
+          {{ end }}
+        </div>
+        <div class="col-12 col-md-6 order-md-2 homepage-row-text text-left">
+          <h2 class="text-primary text-capitalize">{{ $section.Title }}</h2>
+          <div class="text-dark">
+            {{ $section.Content }}
+          </div>
+          {{ if $section.Params.button }}
+            <a class="button" href="{{ $section.Params.buttonLink | relURL }}">{{ $section.Params.button }}</a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 ---
 title: 'Onze doelen'
 weight: 2
-background: ''
+background: 'images/Home_background_1.jpg'
 button: 'Over ons'
 buttonLink: 'about'
 ---

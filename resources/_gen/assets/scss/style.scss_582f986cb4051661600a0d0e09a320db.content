@@ -12290,7 +12290,9 @@ ol {
     align-items: center; }
   .header.header-absolute {
     position: absolute;
-    z-index: 100;
+    top: 0;
+    left: 0;
+    z-index: 9999;
     width: 100%; }
 
 .footer {
@@ -12423,7 +12425,10 @@ ol {
   .logo a {
     display: block;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    pointer-events: auto;
+    position: relative;
+    z-index: 10000; }
 
 .logo-mobile {
   display: block;
@@ -12795,6 +12800,59 @@ ul.social {
   .strip-diagonal-left > div {
     transform: skewY(-5deg); }
 
+.homepage-row {
+  min-height: 420px; }
+
+.homepage-row-light {
+  background-color: #d1dff7; }
+
+.homepage-row-image {
+  margin-bottom: 3rem; }
+
+.homepage-row-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(4, 23, 83, 0.08); }
+
+.homepage-row-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 3rem; }
+
+.homepage-row-text .button {
+  display: inline-block;
+  width: auto;
+  align-self: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem; }
+
+@media (min-width: 768px) {
+  .homepage-row-text {
+    align-items: flex-start;
+    text-align: left; }
+  .homepage-row-text .button {
+    align-self: flex-start; }
+  .homepage-row-image {
+    margin-bottom: 0;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem; }
+  .homepage-row-text {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem; } }
+
+.homepage-row .container {
+  min-height: inherit; }
+
+.homepage-row h2, .homepage-row .h2 {
+  margin-bottom: 1rem; }
+
+.homepage-row p,
+.homepage-row .content {
+  margin-bottom: 1.5rem; }
+
 .strip-bg-contain {
   background-size: contain; }
 
@@ -12849,7 +12907,7 @@ ul.social {
   background-repeat: no-repeat;
   background-position: center center;
   background-blend-mode: overlay;
-  background-color: rgba(28, 62, 211, 0.5);
+  background-color: rgba(28, 62, 211, 0.75);
   height: 400px;
   position: relative;
   padding-top: 60px; }
