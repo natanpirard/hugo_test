@@ -33,17 +33,6 @@
         {{ end }}
       </ul>
       {{ if hugo.Data.contact.hours }}
-      <h4 class="mt-4">Business Hours</h4>
-      <table class="table table-sm opening-hours-table">
-        {{ range hugo.Data.contact.hours }}
-        <tr>
-          <td class="day font-weight-bold">{{ .day }}</td>
-          <td class="opens">{{ .open }}</td>
-          <td>-</td>
-          <td class="closes">{{ .close }}</td>
-        </tr>
-        {{ end }}
-      </table>
       {{ end }}
     </div>
   </div>
