@@ -11,7 +11,7 @@ Wij zijn een kleine organisatie gevestigd in Bertem. We hebben beide veel ervari
 <div class="person-list">
   <div class="person-card">
     <div class="person-photo">
-        <img src="/images/Christilla.png" alt="Christilla Rousseau">
+        <img src="{{< relurl "images/Christilla.png" >}}" alt="Christilla Rousseau">
     </div>
     <h3 class="person-name">Christilla Rousseau</h3>
     <p class="person-bio">Lesgever groep beginners</p>
@@ -19,7 +19,7 @@ Wij zijn een kleine organisatie gevestigd in Bertem. We hebben beide veel ervari
 
   <div class="person-card">
     <div class="person-photo">
-      <img src="/images/Natan.png" alt="Natan Pirard">
+      <img src="{{< relurl "images/Natan.png" >}}" alt="Natan Pirard">
     </div>
     <h3 class="person-name">Natan Pirard (FM)</h3>
     <p class="person-bio">Lesgever groep gevorderden</p>

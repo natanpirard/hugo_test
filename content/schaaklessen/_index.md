@@ -56,4 +56,4 @@ Schaaklessen worden gegeven in groepsvorm, met aandacht voor ieders niveau en te
   </div>
 </div>
 
-<p class="text-center mt-4"><a class="button" href="/inschrijven/">Schrijf je in</a></p>
+<p class="text-center mt-4"><a class="button" href="{{< rellangurl "inschrijven/" >}}">Schrijf je in</a></p>

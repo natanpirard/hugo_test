@@ -56,4 +56,4 @@ Chess lessons are taught in groups, with attention to everyone's level and pace.
   </div>
 </div>
 
-<p class="text-center mt-4"><a class="button" href="/en/inschrijven/">Sign up</a></p>
+<p class="text-center mt-4"><a class="button" href="{{< rellangurl "inschrijven/" >}}">Sign up</a></p>

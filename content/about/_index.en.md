@@ -11,7 +11,7 @@ We are a small organisation based in Bertem. We both have a lot of experience in
 <div class="person-list">
   <div class="person-card">
     <div class="person-photo">
-        <img src="/images/Christilla.png" alt="Christilla Rousseau">
+        <img src="{{< relurl "images/Christilla.png" >}}" alt="Christilla Rousseau">
     </div>
     <h3 class="person-name">Christilla Rousseau</h3>
     <p class="person-bio">Teacher for the beginners group</p>
@@ -19,7 +19,7 @@ We are a small organisation based in Bertem. We both have a lot of experience in
 
   <div class="person-card">
     <div class="person-photo">
-      <img src="/images/Natan.png" alt="Natan Pirard">
+      <img src="{{< relurl "images/Natan.png" >}}" alt="Natan Pirard">
     </div>
     <h3 class="person-name">Natan Pirard (FM)</h3>
     <p class="person-bio">Teacher for the advanced group</p>
