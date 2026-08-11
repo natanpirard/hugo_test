@@ -1,0 +1,27 @@
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+
+  .lang-switch-link,
+  .lang-switch-active {
+    color: $primary;
+    text-decoration: none;
+  }
+
+  .lang-switch-link:hover {
+    text-decoration: underline;
+  }
+
+  .lang-switch-active {
+    color: $secondary;
+  }
+
+  .lang-switch-sep {
+    color: #ccc;
+  }
+}

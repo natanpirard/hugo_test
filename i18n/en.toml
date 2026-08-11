@@ -1,0 +1,17 @@
+[email_label]
+other = "Email:"
+
+[phone_label]
+other = "Phone:"
+
+[address_label]
+other = "Address:"
+
+[page_not_found]
+other = "Page not found"
+
+[back_home]
+other = "Home"
+
+[contact_us]
+other = "Contact us"

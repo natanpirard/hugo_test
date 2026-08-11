@@ -1,0 +1,12 @@
+{{ if hugo.IsMultilingual }}
+<div class="lang-switch">
+  {{ range $index, $t := .AllTranslations }}
+    {{ if gt $index 0 }}<span class="lang-switch-sep">/</span>{{ end }}
+    {{ if eq $t.Lang $.Lang }}
+      <span class="lang-switch-active">{{ $t.Lang | upper }}</span>
+    {{ else }}
+      <a href="{{ $t.RelPermalink }}" class="lang-switch-link">{{ $t.Lang | upper }}</a>
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}

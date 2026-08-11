@@ -1,10 +1,9 @@
 ---
 title: 'Schaaklessen'
 weight: 1
-background: 'images/kevin-bhagat-461952-unsplash.jpg'
+background: 'images/background_lessons.jpg'
 button: 'Lessen'
 buttonLink: 'schaaklessen'
 ---
 
-Wij bieden lessen aan in groepsvorm. Je krijgt samen met andere enthousiaste spelers van jouw niveau schaaklessen van ervaren lesgevers.
-Je leert nieuwe technieken, strategieën en je leert ook nieuwe mensen kennen.
+Wij geven schaaklessen in groepjes van zes. Je krijgt samen met andere spelers van jouw niveau en leeftijd lessen van ervaren schakers. Je leert nieuwe technieken en strategieën, en je leert ook nieuwe mensen kennen.

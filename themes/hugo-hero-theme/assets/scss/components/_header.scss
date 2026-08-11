@@ -5,10 +5,14 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 1px 15px rgba(50, 50, 93, 0.2);
-  height: 60px;
+  height: 84px;
   .container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
+  .header-nav {
+    display: flex;
     align-items: center;
   }
   &.header-absolute {

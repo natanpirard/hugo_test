@@ -1,5 +1,10 @@
-email: 'example@example.com'
-phone: 'XXXX XXX XXX'
+---
+title: 'Contact'
+date: 2018-02-22T17:01:34+07:00
+heroHeading: 'Contact'
+heroSubHeading: ''
+heroBackground: ''
+email: 'Christilla@hotmail.be'
 businessName: 'Hugo Serif'
 address: |
   123 Some Street
@@ -26,3 +31,6 @@ hours:
   - day: Sunday
     open: Closed
     close:
+---
+
+You can contact us via email.
