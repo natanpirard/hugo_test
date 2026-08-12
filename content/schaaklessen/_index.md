@@ -43,7 +43,7 @@ Schaaklessen worden gegeven in groepsvorm, met aandacht voor ieders niveau en te
       </span>
       <h3 class="info-item-title">Locatie?</h3>
     </div>
-    <p class="info-item-text">De lessen gaan door in een zaaltje in Bertem.</p>
+    <p class="info-item-text">De lessen gaan door in een zaaltje in Bertem. Het adres is: Vossenstraat 4, 3060 Bertem.</p>
   </div>
   <div class="info-item">
     <div class="info-item-header">

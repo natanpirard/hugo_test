@@ -7,8 +7,8 @@ heroBackground: ''
 email: 'Christilla@hotmail.be'
 businessName: 'Hugo Serif'
 address: |
-  123 Some Street
-  City, State 12345
+  Vossenstraat 4
+  3060 Bertem
 hours:
   - day: Monday
     open: 8:30am

@@ -43,7 +43,7 @@ Chess lessons are taught in groups, with attention to everyone's level and pace.
       </span>
       <h3 class="info-item-title">Location?</h3>
     </div>
-    <p class="info-item-text">Lessons take place in a hall in Bertem.</p>
+    <p class="info-item-text">Lessons take place in a hall in Bertem. The address is: Vossenstraat 4, 3060 Bertem.</p>
   </div>
   <div class="info-item">
     <div class="info-item-header">

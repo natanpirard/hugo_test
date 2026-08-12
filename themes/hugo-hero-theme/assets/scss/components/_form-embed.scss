@@ -8,3 +8,15 @@
     border: none;
   }
 }
+
+.map-embed {
+  max-width: 700px;
+  margin: 2rem 0 0;
+
+  iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+  }
+}
