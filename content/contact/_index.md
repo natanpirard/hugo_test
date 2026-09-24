@@ -7,8 +7,8 @@ heroBackground: ''
 email: 'Christilla@hotmail.be'
 businessName: 'Hugo Serif'
 address: |
-  Vossenstraat 4
-  3060 Bertem
+  Diestsesteenweg 49
+  3010 Leuven
 hours:
   - day: Monday
     open: 8:30am

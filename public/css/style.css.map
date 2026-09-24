@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "style.css",
-	"sourceRoot": "/home/natan/Documents/Chess/Chess_and_growth/Website/hugo_test",
+	"sourceRoot": "/home/natan/Documents/Chess/GTC/Website/hugo_test",
 	"sources": [
 		"themes/hugo-hero-theme/assets/scss/style.scss",
 		"themes/hugo-hero-theme/assets/scss/_bootstrap-variables.scss",
