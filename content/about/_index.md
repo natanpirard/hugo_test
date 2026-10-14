@@ -6,7 +6,7 @@ heroSubHeading: ""
 
 ## Wie zijn wij?
 
-Wij zijn een kleine organisatie gevestigd in Bertem. We hebben beide veel ervaring in zowel competitief schaken als lesgeven, en nu willen we onze kennis met jullie delen.
+Wij zijn een kleine organisatie gevestigd in Leuven. We hebben beide veel ervaring in zowel competitief schaken als lesgeven, en nu willen we onze kennis met jullie delen.
 
 <div class="person-list">
   <div class="person-card">

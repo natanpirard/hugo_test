@@ -6,7 +6,7 @@ heroSubHeading: ""
 
 ## Who are we?
 
-We are a small organisation based in Bertem. We both have a lot of experience in competitive chess as well as teaching, and now we want to share our knowledge with you.
+We are a small organisation based in Leuven. We both have a lot of experience in competitive chess as well as teaching, and now we want to share our knowledge with you.
 
 <div class="person-list">
   <div class="person-card">
