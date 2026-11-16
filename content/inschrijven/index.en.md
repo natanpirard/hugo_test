@@ -11,3 +11,5 @@ form: "https://docs.google.com/forms/d/e/1FAIpQLSeBruBPtjV4xBkq_Ig4xaWeGhzaGMnu_
 ---
 
 Would you like to take part in the chess lessons? Send us a message via the contact form or get in touch with us directly.
+
+Read our [privacy policy](/en/privacy-policy/) to see how we handle your data.

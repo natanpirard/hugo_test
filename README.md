@@ -123,6 +123,13 @@ Edit `data/contact.yaml`. This updates the contact page, the map, the footer
 and the information for Google at once.
 (The address is also written in the "Locatie?" block on the Schaaklessen page.)
 
+### The contact form
+Messages sent through the form on the contact page are emailed to us by
+[Web3Forms](https://web3forms.com). The access key is `contactFormKey` in
+`data/contact.yaml`; the messages go to the email address that key was created
+for. If the key is empty, the form is hidden on the live website (with
+`hugo server` you still see a preview).
+
 ### Change the registration form
 In `content/inschrijven/index.nl.md` (and `.en.md`), change the link after `form:`.
 

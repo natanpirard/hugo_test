@@ -7,3 +7,5 @@ form: "https://docs.google.com/forms/d/e/1FAIpQLSeBruBPtjV4xBkq_Ig4xaWeGhzaGMnu_
 ---
 
 Wil je graag deelnemen aan de schaaklessen? Stuur ons een bericht via het contactformulier of neem rechtstreeks contact met ons op.
+
+Lees in onze [privacyverklaring](/privacyverklaring/) hoe wij met je gegevens omgaan.

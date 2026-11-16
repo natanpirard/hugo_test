@@ -1,0 +1,33 @@
+{{- /*
+  Contact form. Messages are sent by Web3Forms (web3forms.com) to our mailbox.
+  The access key is set in data/contact.yaml (contactFormKey).
+*/ -}}
+{{ $key := hugo.Data.contact.contactFormKey }}
+{{ if or $key hugo.IsServer }}
+<form class="contact-form" action="https://api.web3forms.com/submit" method="POST"
+  data-success="{{ i18n "form_success" }}" data-error="{{ i18n "form_error" }}" data-sending="{{ i18n "form_sending" }}">
+  {{ if not $key }}<p class="contact-form-warning">Preview only: add contactFormKey in data/contact.yaml to make this form work.</p>{{ end }}
+  <input type="hidden" name="access_key" value="{{ $key }}">
+  <input type="hidden" name="subject" value="{{ i18n "form_subject" }}">
+  <input type="hidden" name="from_name" value="{{ site.Title }} website">
+  <input type="checkbox" name="botcheck" class="contact-form-botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+  <div class="mb-3">
+    <label class="form-label" for="cf-name">{{ i18n "form_name" }}</label>
+    <input class="form-control" type="text" id="cf-name" name="name" autocomplete="name" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="cf-email">{{ i18n "form_email" }}</label>
+    <input class="form-control" type="email" id="cf-email" name="email" autocomplete="email" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="cf-message">{{ i18n "form_message" }}</label>
+    <textarea class="form-control" id="cf-message" name="message" rows="6" required></textarea>
+  </div>
+  <p class="contact-form-privacy">{{ i18n "form_privacy" | replaceRE "\\[(.+?)\\]" (printf "<a href=\"%s\">$1</a>" (partial "page-link.html" "privacy")) | safeHTML }}</p>
+  <button class="button" type="submit">{{ i18n "form_send" }}</button>
+  <p class="contact-form-status" role="status" aria-live="polite"></p>
+</form>
+{{ $js := resources.Get "js/contact-form.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" defer></script>
+{{ end }}

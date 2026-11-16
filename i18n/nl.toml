@@ -21,3 +21,25 @@ other = "Scroll naar beneden"
 
 [loading]
 other = "Laden…"
+
+[privacy]
+other = "Privacyverklaring"
+
+[form_name]
+other = "Naam"
+[form_email]
+other = "E-mailadres"
+[form_message]
+other = "Bericht"
+[form_send]
+other = "Verstuur"
+[form_sending]
+other = "Bezig met versturen…"
+[form_success]
+other = "Bedankt! Je bericht is verstuurd. We antwoorden zo snel mogelijk."
+[form_error]
+other = "Er ging iets mis bij het versturen. Probeer het opnieuw of mail ons rechtstreeks."
+[form_subject]
+other = "Nieuw bericht via het contactformulier"
+[form_privacy]
+other = "We gebruiken je gegevens enkel om op je bericht te antwoorden. Lees meer in onze [privacyverklaring]."

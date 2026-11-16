@@ -21,3 +21,25 @@ other = "Scroll down"
 
 [loading]
 other = "Loading…"
+
+[privacy]
+other = "Privacy Policy"
+
+[form_name]
+other = "Name"
+[form_email]
+other = "Email address"
+[form_message]
+other = "Message"
+[form_send]
+other = "Send"
+[form_sending]
+other = "Sending…"
+[form_success]
+other = "Thank you! Your message has been sent. We'll reply as soon as possible."
+[form_error]
+other = "Something went wrong while sending. Please try again or email us directly."
+[form_subject]
+other = "New message via the contact form (English site)"
+[form_privacy]
+other = "We only use your details to reply to your message. Read more in our [privacy policy]."

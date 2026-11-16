@@ -2,7 +2,12 @@
 # These are used on the contact page, in the footer and for Google search results.
 # Change them here once and they are updated everywhere (both languages).
 
-email: Christilla@hotmail.be
+email: info@growthroughchess.com
+
+# Access key for the contact form (from https://web3forms.com).
+# Messages sent through the form are emailed to the address linked to this key.
+# Leave empty to hide the form.
+contactFormKey: "03aa60dc-1880-4404-b8f8-453407774900"
 
 address:
   street: Diestsesteenweg 49

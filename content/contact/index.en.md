@@ -4,4 +4,4 @@ description: "Contact Grow Through Chess with any questions about the chess less
 # The email address and address shown on this page are in data/contact.yaml
 ---
 
-You can contact us via email.
+Do you have a question? Send us a message using the form below, or email us directly.

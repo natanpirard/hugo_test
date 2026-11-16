@@ -19,6 +19,7 @@
         <li><strong>{{ i18n "address_label" }} </strong><br>{{ .street }}<br>{{ .postalCode }} {{ .city }}</li>
         {{ end }}
       </ul>
+      {{ partial "contact-form.html" . }}
       {{ with $c.address }}
       {{ $mapAddr := printf "%s, %s %s" .street .postalCode .city }}
       <div class="map-embed">

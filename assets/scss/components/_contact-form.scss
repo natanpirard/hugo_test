@@ -1,0 +1,46 @@
+.contact-form {
+  max-width: 700px;
+  margin: 2rem 0 0;
+
+  .form-label {
+    font-weight: 600;
+    color: #333333;
+  }
+  .form-control {
+    border-radius: 0;
+    &:focus {
+      border-color: $primary;
+      box-shadow: 0 0 0 0.2rem rgba($primary, 0.2);
+    }
+  }
+  button.button {
+    border: none;
+    cursor: pointer;
+    &:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+  }
+}
+
+// Hidden field that only spam bots fill in
+.contact-form-botcheck {
+  display: none;
+}
+
+.contact-form-privacy {
+  font-size: 0.9rem;
+}
+
+.contact-form-status {
+  margin-top: 1rem;
+  font-weight: 600;
+  &.is-success { color: #1e7d32; }
+  &.is-error { color: #c62828; }
+}
+
+.contact-form-warning {
+  padding: 0.5rem 1rem;
+  background: #fff3cd;
+  color: #664d03;
+}
