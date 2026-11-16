@@ -6,10 +6,10 @@ description: "Meet the teachers of Grow Through Chess in Leuven: experienced com
 # Photos are in the assets/images folder.
 team:
   - name: "Christilla Rousseau"
-    role: "Teacher for the beginners group"
+    role: "Events and workshops"
     photo: "images/Christilla.png"
   - name: "Natan Pirard (FM)"
-    role: "Teacher for the advanced group"
+    role: "Teacher"
     photo: "images/Natan.png"
 ---
 

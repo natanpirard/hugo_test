@@ -13,13 +13,13 @@ info:
     text: "We werken in reeksen van 10 lessen, met een duidelijke opbouw en persoonlijke opvolging voor elke deelnemer."
   - icon: clock
     title: "Duur?"
-    text: "De lessen duren 1 uur per week. We starten in oktober."
+    text: "De lessen duren 1 uur per week. De volgende lessenreeks begint in Januari 2027."
   - icon: location
     title: "Locatie?"
     text: "De lessen gaan door in een zaaltje in Leuven. Het adres is: Diestsesteenweg 49, 3010 Leuven."
   - icon: price
     title: "Prijs?"
-    text: "€200 voor 10 lessen voor de eerste 24 deelnemers, daarna €220."
+    text: "€200 voor 10 lessen. Je krijgt telkens een bundel met alle lesinhoud + extra oefeningen."
 
 # Frequently asked questions, shown below the information blocks.
 faqTitle: "Veelgestelde vragen"
@@ -29,7 +29,7 @@ faq:
   - question: "Hoe groot zijn de groepen?"
     answer: "We geven les in groepjes van zes, zodat er voldoende aandacht is voor elke deelnemer."
   - question: "Wie geeft de lessen?"
-    answer: "Christilla Rousseau geeft les aan de groep beginners, FIDE Master Natan Pirard aan de groep gevorderden. [Lees meer over ons](/over-ons/)."
+    answer: "FIDE Master Natan Pirard aan de groep beginners en aan de groep gevorderden. [Lees meer over ons](/over-ons/)."
   - question: "Hoe schrijf ik me in?"
     answer: "Vul het formulier in op de pagina [Inschrijven](/inschrijven/) of neem [contact](/contact/) met ons op."
 

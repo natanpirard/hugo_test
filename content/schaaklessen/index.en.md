@@ -17,13 +17,13 @@ info:
     text: "We work in series of 10 lessons, with a clear structure and personal follow-up for every participant."
   - icon: clock
     title: "Duration?"
-    text: "Lessons last 1 hour per week. We start in October."
+    text: "Lessons last 1 hour per week. The next series of lessons starts in Januari 2027."
   - icon: location
     title: "Location?"
     text: "Lessons take place in a hall in Leuven. The address is: Diestsesteenweg 49, 3010 Leuven."
   - icon: price
     title: "Price?"
-    text: "€200 for 10 lessons for the first 24 participants, €220 after that."
+    text: "€200 for 10 lessons. You get a printed bundle with the content of the lesson + extra exercises to practise at home."
 
 # Frequently asked questions, shown below the information blocks.
 faqTitle: "Frequently asked questions"
@@ -33,7 +33,7 @@ faq:
   - question: "How big are the groups?"
     answer: "We teach in groups of six, so there is enough attention for every participant."
   - question: "Who teaches the lessons?"
-    answer: "Christilla Rousseau teaches the beginners group, FIDE Master Natan Pirard teaches the advanced group. [Read more about us](/en/about/)."
+    answer: "FIDE Master Natan Pirard teaches the beginners group and the advanced group. [Read more about us](/en/about/)."
   - question: "How do I sign up?"
     answer: "Fill in the form on the [Sign Up](/en/sign-up/) page or [contact](/en/contact/) us."
 

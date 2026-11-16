@@ -9,10 +9,10 @@ description: "Maak kennis met de lesgevers van Grow Through Chess in Leuven: erv
 # Photos are in the assets/images folder.
 team:
   - name: "Christilla Rousseau"
-    role: "Lesgever groep beginners"
+    role: "Evenementen en workshops"
     photo: "images/Christilla.png"
   - name: "Natan Pirard (FM)"
-    role: "Lesgever groep gevorderden"
+    role: "Lesgever"
     photo: "images/Natan.png"
 ---
 
