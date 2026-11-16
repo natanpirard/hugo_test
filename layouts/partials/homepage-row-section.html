@@ -1,0 +1,17 @@
+{{- /* One block on the home page. Blocks alternate image-left / image-right. */ -}}
+{{ $section := .section }}
+{{ $index := .index }}
+{{ $odd := eq (mod $index 2) 1 }}
+<div id="{{ if eq $index 0 }}home{{ else }}home-section-{{ $index }}{{ end }}" class="homepage-row strip {{ if $odd }}homepage-row-light{{ end }}">
+  <div class="container pt-17 pb-17">
+    <div class="row align-items-center">
+      {{ if $odd }}
+        {{ partial "homepage-row-text.html" (dict "section" $section "order" 1) }}
+        {{ partial "homepage-row-image.html" (dict "section" $section "order" 2) }}
+      {{ else }}
+        {{ partial "homepage-row-image.html" (dict "section" $section "order" 1) }}
+        {{ partial "homepage-row-text.html" (dict "section" $section "order" 2) }}
+      {{ end }}
+    </div>
+  </div>
+</div>

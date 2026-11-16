@@ -1,0 +1,24 @@
+{{ $c := hugo.Data.contact }}
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="footer-inner">
+          {{ with $c.social }}
+          <ul class="social">
+            {{ range . }}
+            {{ $icon := partial "image-url.html" (dict "src" .icon) }}
+            <li><a href="{{ .link }}" target="_blank" rel="noopener"><img width="20" height="20" src="{{ $icon.url }}" title="{{ .name }}" alt="{{ .name }}" /></a></li>
+            {{ end }}
+          </ul>
+          {{ end }}
+          <ul class="footer-menu">
+            <li><a href="{{ site.Home.RelPermalink }}">Home</a></li>
+            <li><a href="{{ "contact/" | relLangURL }}">Contact</a></li>
+            <li class="copyright">© {{ now.Format "2006" }} {{ site.Title }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,15 @@
+{{- /*
+  Turns a link from the front matter ("inschrijven", "about", "https://...")
+  into a working URL in the current language.
+*/ -}}
+{{- $link := . -}}
+{{- $url := $link -}}
+{{- if not (or (hasPrefix $link "http") (hasPrefix $link "mailto:")) -}}
+  {{- $p := site.GetPage (printf "/%s" (strings.Trim $link "/")) -}}
+  {{- if $p -}}
+    {{- $url = $p.RelPermalink -}}
+  {{- else -}}
+    {{- $url = $link | relLangURL -}}
+  {{- end -}}
+{{- end -}}
+{{- return $url -}}

@@ -1,0 +1,4 @@
+{{- /* Button at the bottom of a page (front matter: buttonText, buttonLink) */ -}}
+{{ with .Params.buttonText }}
+<p class="text-center mt-4"><a class="button" href="{{ partial "page-link.html" $.Params.buttonLink }}">{{ . }}</a></p>
+{{ end }}

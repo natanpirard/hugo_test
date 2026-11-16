@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ partial "head/seo.html" . }}
+
+  {{ with resources.Get "images/favicon.png" }}
+  {{ $favicon := . | fingerprint }}
+  <link rel="icon" type="image/png" href="{{ $favicon.RelPermalink }}">
+  <link rel="apple-touch-icon" href="{{ $favicon.RelPermalink }}">
+  {{ end }}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400|Open+Sans:400,700&display=swap">
+
+  {{ if hugo.IsServer }}
+  {{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" true) }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  {{ else }}
+  {{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" false) | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+  {{ end }}
+</head>
+
+<body class='page {{ block "body_classes" . }}{{ end }}'>
+  {{ partial "main-menu-mobile.html" . }}
+  <div id="wrapper" class="wrapper">
+    {{ partial "header.html" . }}
+    <main>
+    {{ block "main" . }}{{ end }}
+    </main>
+  </div>
+
+  {{ partial "footer.html" . }}
+
+  {{ $scripts := resources.Get "js/scripts.js" }}
+  {{ if hugo.IsServer }}
+  <script src="{{ $scripts.RelPermalink }}"></script>
+  {{ else }}
+  <script src="{{ ($scripts | minify | fingerprint).RelPermalink }}"></script>
+  {{ end }}
+
+  {{ partial "google-analytics.html" . }}
+</body>
+</html>

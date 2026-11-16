@@ -1,0 +1,31 @@
+{{- /* Contact page. Email and address come from data/contact.yaml */ -}}
+{{ define "body_classes" }}page-contact{{ end }}
+
+{{ define "main" }}
+{{ $c := hugo.Data.contact }}
+{{ partial "hero.html" (dict "page" .) }}
+<div class="container pt-10 pb-6">
+  <div class="row">
+    <div class="col-12 col-md-8">
+      {{ .Content }}
+      <ul>
+        {{ with $c.phone }}
+        <li><strong>{{ i18n "phone_label" }} </strong><a href="tel:{{ . }}">{{ . }}</a></li>
+        {{ end }}
+        {{ with $c.email }}
+        <li><strong>{{ i18n "email_label" }} </strong><a href="mailto:{{ . }}">{{ . }}</a></li>
+        {{ end }}
+        {{ with $c.address }}
+        <li><strong>{{ i18n "address_label" }} </strong><br>{{ .street }}<br>{{ .postalCode }} {{ .city }}</li>
+        {{ end }}
+      </ul>
+      {{ with $c.address }}
+      {{ $mapAddr := printf "%s, %s %s" .street .postalCode .city }}
+      <div class="map-embed">
+        <iframe src="https://www.google.com/maps?q={{ $mapAddr | urlquery }}&output=embed" title="Google Maps: {{ $mapAddr }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

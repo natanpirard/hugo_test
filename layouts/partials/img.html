@@ -1,0 +1,9 @@
+{{- /*
+  Renders an <img> tag for an image path.
+  Usage: partial "img.html" (dict "src" "images/x.jpg" "alt" "..." "width" 800 "lazy" true "page" .)
+*/ -}}
+{{- $i := partial "image-url.html" . -}}
+<img src="{{ $i.url }}" alt="{{ .alt }}"
+  {{- with .class }} class="{{ . }}"{{ end }}
+  {{- if $i.width }} width="{{ $i.width }}" height="{{ $i.height }}"{{ end }}
+  {{- if .lazy }} loading="lazy" decoding="async"{{ end }}>

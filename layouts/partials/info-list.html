@@ -1,0 +1,14 @@
+{{- /* The information blocks with icons (front matter: info) */ -}}
+{{ with .Params.info }}
+<div class="info-list">
+  {{ range . }}
+  <div class="info-item">
+    <div class="info-item-header">
+      {{ with .icon }}<span class="info-item-icon">{{ partial (printf "icons/%s.html" .) . }}</span>{{ end }}
+      <h3 class="info-item-title">{{ .title }}</h3>
+    </div>
+    <p class="info-item-text">{{ $.RenderString .text }}</p>
+  </div>
+  {{ end }}
+</div>
+{{ end }}

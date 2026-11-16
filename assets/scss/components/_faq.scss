@@ -1,0 +1,32 @@
+.faq {
+  max-width: 720px;
+  margin: 3rem auto 0;
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.faq-item {
+  border-bottom: 1px solid #eaeaea;
+  padding: 1rem 0;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.faq-question {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: $primary;
+  margin: 0 0 0.4rem;
+  @include media-breakpoint-up(md) {
+    font-size: 1.1rem;
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+}
+
+.faq-answer {
+  margin: 0;
+}

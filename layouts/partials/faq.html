@@ -1,0 +1,12 @@
+{{- /* Frequently asked questions (front matter: faqTitle, faq) */ -}}
+{{ with .Params.faq }}
+<section class="faq">
+  {{ with $.Params.faqTitle }}<h2>{{ . }}</h2>{{ end }}
+  {{ range . }}
+  <div class="faq-item">
+    <h3 class="faq-question">{{ .question }}</h3>
+    <p class="faq-answer">{{ $.RenderString .answer }}</p>
+  </div>
+  {{ end }}
+</section>
+{{ end }}

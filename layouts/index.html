@@ -1,0 +1,13 @@
+{{ define "body_classes" }}page-home{{ end }}
+
+{{ define "main" }}
+{{ partial "hero.html" (dict "page" . "fullscreen" true) }}
+
+{{/* The blocks below the big image come from content/homepage/ */}}
+{{ with site.GetPage "/homepage" }}
+  {{ $blocks := sort (.Resources.ByType "page") "Params.weight" }}
+  {{ range $index, $block := $blocks }}
+    {{ partial "homepage-row-section.html" (dict "section" $block "index" $index) }}
+  {{ end }}
+{{ end }}
+{{ end }}

@@ -1,0 +1,32 @@
+{{- /*
+  Returns a URL for an image path such as "images/Natan.png".
+  Images in assets/ are made smaller (to at most "width" pixels wide) and
+  converted to the light-weight WebP format, so pages load faster.
+  Anything else (e.g. a full https:// link) is returned unchanged.
+
+  Usage: partial "image-url.html" (dict "src" "images/x.jpg" "width" 800 "page" .)
+  Returns: dict with "url", "width", "height" (width/height 0 when unknown).
+*/ -}}
+{{- $src := .src -}}
+{{- $out := dict "url" ($src | relURL) "width" 0 "height" 0 -}}
+{{- if not (or (hasPrefix $src "http://") (hasPrefix $src "https://") (hasPrefix $src "//")) -}}
+  {{- $res := "" -}}
+  {{- with .page }}{{ $res = .Resources.Get $src }}{{ end -}}
+  {{- if not $res }}{{ $res = resources.Get (strings.TrimPrefix "/" $src) }}{{ end -}}
+  {{- with $res -}}
+    {{- if in (slice "jpeg" "png") .MediaType.SubType -}}
+      {{- $spec := "webp" -}}
+      {{- if and $.width (gt .Width $.width) }}{{ $spec = printf "resize %dx webp" $.width }}{{ end -}}
+      {{- $r := try (.Process $spec) -}}
+      {{- if $r.Err -}}
+        {{- /* The file can't be processed (e.g. wrong extension): use it as-is */ -}}
+        {{- $out = dict "url" .RelPermalink "width" 0 "height" 0 -}}
+      {{- else -}}
+        {{- $out = dict "url" $r.Value.RelPermalink "width" $r.Value.Width "height" $r.Value.Height -}}
+      {{- end -}}
+    {{- else -}}
+      {{- $out = dict "url" .RelPermalink "width" 0 "height" 0 -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $out -}}

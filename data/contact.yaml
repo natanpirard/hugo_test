@@ -1,0 +1,18 @@
+# Contact details of Grow Through Chess.
+# These are used on the contact page, in the footer and for Google search results.
+# Change them here once and they are updated everywhere (both languages).
+
+email: Christilla@hotmail.be
+
+address:
+  street: Diestsesteenweg 49
+  postalCode: "3010"
+  city: Leuven
+  country: BE
+
+# Social media links shown in the footer.
+# "icon" is an image in the assets/images folder.
+social:
+  - name: Facebook
+    link: https://www.facebook.com/profile.php?id=61592850834189
+    icon: images/icons/facebook.svg

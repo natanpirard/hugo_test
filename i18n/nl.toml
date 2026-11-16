@@ -15,3 +15,9 @@ other = "Home"
 
 [contact_us]
 other = "Contacteer ons"
+
+[scroll_down]
+other = "Scroll naar beneden"
+
+[loading]
+other = "Laden…"

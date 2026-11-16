@@ -1,0 +1,10 @@
+{{ $s := .section }}
+<div class="col-12 col-md-6 order-md-{{ .order }} homepage-row-text text-left">
+  <h2 class="text-primary text-capitalize">{{ $s.Title }}</h2>
+  <div class="text-dark">
+    {{ $s.Content }}
+  </div>
+  {{ with $s.Params.buttonText }}
+    <a class="button" href="{{ partial "page-link.html" $s.Params.buttonLink }}">{{ . }}</a>
+  {{ end }}
+</div>

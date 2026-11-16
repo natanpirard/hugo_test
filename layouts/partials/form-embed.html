@@ -1,0 +1,6 @@
+{{- /* Embedded (Google) form (front matter: form) */ -}}
+{{ with .Params.form }}
+<div class="form-embed">
+  <iframe src="{{ . }}" title="{{ $.Title }}" width="640" height="1200" loading="lazy">{{ i18n "loading" }}</iframe>
+</div>
+{{ end }}

@@ -1,0 +1,14 @@
+{{- /* Write {{< team >}} in a markdown text to show the "team" from the front matter */ -}}
+{{ with .Page.Params.team }}
+<div class="person-list">
+  {{ range . }}{{ $person := . }}
+  <div class="person-card">
+    <div class="person-photo">
+      {{ with .photo }}{{ partial "img.html" (dict "src" . "alt" $person.name "width" 240 "page" $.Page) }}{{ end }}
+    </div>
+    <h3 class="person-name">{{ .name }}</h3>
+    <p class="person-bio">{{ .role }}</p>
+  </div>
+  {{ end }}
+</div>
+{{ end }}

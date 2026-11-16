@@ -1,0 +1,100 @@
+{{- /*
+  Search engine and social media tags.
+  Uses from the page front matter: title, seoTitle, description, socialImage.
+*/ -}}
+
+{{- /* <title> */ -}}
+{{- $title := "" -}}
+{{- if .Params.seoTitle -}}
+  {{- $title = .Params.seoTitle -}}
+{{- else if .IsHome -}}
+  {{- $title = site.Title -}}
+{{- else if eq .Kind "404" -}}
+  {{- $title = printf "%s | %s" (i18n "page_not_found") site.Title -}}
+{{- else -}}
+  {{- $title = printf "%s | %s" .Title site.Title -}}
+{{- end -}}
+<title>{{ $title }}</title>
+
+{{- $description := .Description | default site.Params.description }}
+<meta name="description" content="{{ $description }}">
+
+{{- if eq .Kind "404" }}
+<meta name="robots" content="noindex">
+{{- else }}
+<link rel="canonical" href="{{ .Permalink }}">
+{{- end }}
+
+{{- /* Language versions of this page, so Google shows the right one */ -}}
+{{- if .IsTranslated }}
+{{- range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+{{- end }}
+{{- range where .AllTranslations "Lang" hugo.Sites.Default.Language.Lang }}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+{{- end }}
+{{- end }}
+
+{{- /* Social media (Facebook, WhatsApp, LinkedIn, ...) */ -}}
+{{- $imagePath := .Params.socialImage | default site.Params.socialImage }}
+{{- $image := "" }}
+{{- with $imagePath }}{{ with resources.Get . }}{{ $image = . }}{{ end }}{{ end }}
+{{- $locale := replace site.Language.Locale "-" "_" }}
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="{{ $locale }}">
+{{- range .Translations }}
+<meta property="og:locale:alternate" content="{{ replace .Language.Locale "-" "_" }}">
+{{- end }}
+{{- with $image }}
+<meta property="og:image" content="{{ .Permalink }}">
+{{- with try .Width }}{{ if not .Err }}
+<meta property="og:image:width" content="{{ $image.Width }}">
+<meta property="og:image:height" content="{{ $image.Height }}">
+{{- end }}{{ end }}
+<meta property="og:image:alt" content="{{ site.Title }}">
+<meta name="twitter:card" content="summary_large_image">
+{{- else }}
+<meta name="twitter:card" content="summary">
+{{- end }}
+
+{{- /* Structured data for Google (organisation info, shown on the home page) */ -}}
+{{- if .IsHome }}
+{{- $c := hugo.Data.contact }}
+{{- $org := dict
+  "@context" "https://schema.org"
+  "@type" "EducationalOrganization"
+  "name" site.Title
+  "url" site.Home.Permalink
+  "description" $description
+}}
+{{- with resources.Get site.Params.logo.image }}{{ $org = merge $org (dict "logo" .Permalink) }}{{ end }}
+{{- with $c.email }}{{ $org = merge $org (dict "email" .) }}{{ end }}
+{{- with $c.address }}
+  {{- $org = merge $org (dict "address" (dict
+    "@type" "PostalAddress"
+    "streetAddress" .street
+    "postalCode" .postalCode
+    "addressLocality" .city
+    "addressCountry" .country
+  )) }}
+{{- end }}
+{{- with $c.social }}{{ $org = merge $org (dict "sameAs" (apply . "index" "." "link")) }}{{ end }}
+<script type="application/ld+json">{{ $org | jsonify | safeJS }}</script>
+{{- end }}
+
+{{- /* Structured data for the frequently asked questions (front matter: faq) */ -}}
+{{- with .Params.faq }}
+{{- $items := slice }}
+{{- range . }}
+  {{- $items = $items | append (dict
+    "@type" "Question"
+    "name" .question
+    "acceptedAnswer" (dict "@type" "Answer" "text" ($.RenderString .answer | plainify))
+  ) }}
+{{- end }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" $items | jsonify | safeJS }}</script>
+{{- end }}

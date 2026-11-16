@@ -1,0 +1,18 @@
+{{- /*
+  Standard page (Schaaklessen, Over ons, Inschrijven, ...):
+  banner, the markdown text, and optionally info blocks, a button and a form.
+*/ -}}
+{{ define "main" }}
+{{ partial "hero.html" (dict "page" .) }}
+<div class="container pt-10 pb-12">
+  <div class="row">
+    <div class="col-12 page-body">
+      {{ .Content }}
+      {{ partial "info-list.html" . }}
+      {{ partial "faq.html" . }}
+      {{ partial "page-button.html" . }}
+      {{ partial "form-embed.html" . }}
+    </div>
+  </div>
+</div>
+{{ end }}

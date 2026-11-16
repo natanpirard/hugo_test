@@ -1,0 +1,6 @@
+{{ $s := .section }}
+<div class="col-12 col-md-6 order-md-{{ .order }} homepage-row-image">
+  {{ with $s.Params.image }}
+    {{ partial "img.html" (dict "src" . "alt" ($s.Params.imageAlt | default $s.Title) "width" 1080 "lazy" true "page" $s) }}
+  {{ end }}
+</div>

@@ -1,0 +1,16 @@
+{{ $logo := partial "image-url.html" (dict "src" site.Params.logo.image "width" 330) }}
+<header class='header header-absolute'>
+  <div class="container">
+    <div class="logo">
+      <a href="{{ site.Home.RelPermalink }}"><img height="{{ site.Params.logo.height }}" width="{{ site.Params.logo.width }}" alt="{{ site.Params.logo.alt }}" src="{{ $logo.url }}" /></a>
+    </div>
+    <div class="logo-mobile">
+      <a href="{{ site.Home.RelPermalink }}"><img height="{{ site.Params.logo.height }}" width="{{ site.Params.logo.width }}" alt="{{ site.Params.logo.alt }}" src="{{ $logo.url }}" /></a>
+    </div>
+    <nav class="header-nav">
+      {{ partial "main-menu.html" . }}
+      {{ partial "language-switcher.html" . }}
+      {{ partial "hamburger.html" . }}
+    </nav>
+  </div>
+</header>

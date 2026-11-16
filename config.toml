@@ -1,93 +1,93 @@
+# =============================================================================
+#  Grow Through Chess - site settings
+#  Texts of the pages are NOT here: they live in the "content" folder.
+#  Email, address and social links live in data/contact.yaml.
+# =============================================================================
+
 baseURL = "https://growthroughchess.com/"
 title = "Grow Through Chess"
-theme = "hugo-hero-theme"
 defaultContentLanguage = "nl"
 defaultContentLanguageInSubdir = false
 
-[module]
-  [module.hugoVersion]
-    extended = true
-    min = "0.92.0"
-    
+# Generate a robots.txt that points search engines to the sitemap.
+enableRobotsTXT = true
+
+# Use the date of the last git commit as "last modified" date in the sitemap.
+enableGitInfo = true
+
+# Page types this site does not use (tags, categories, RSS feeds).
+disableKinds = ["taxonomy", "term", "rss"]
+
 [params]
-  google_analytics_id=""
+  # Optional Google Analytics measurement ID, e.g. "G-XXXXXXXXXX".
+  google_analytics_id = ""
+
+  # Image shown when a page is shared on Facebook, WhatsApp, ...
+  # Best size: 1200 x 630 pixels.
+  # (a page can override it with "socialImage" in its front matter).
+  socialImage = "images/share-image.jpg"
 
   [params.logo]
-    mobile = "images/Logo_CL.png"
-    mobile_height = "66px"
-    mobile_width = "110px"
-    desktop = "images/Logo_CL.png"
-    desktop_height = "66px"
-    desktop_width = "110px"
+    image = "images/Logo_CL.png"
+    width = 110
+    height = 66
     alt = "Grow Through Chess"
-
-  [params.homepage_meta_tags]
-    meta_description = "Hero is a multipurpose Hugo theme with fullscreen hero images and page sections. It contains content types for a business or portfolio site."
-    meta_og_title = "Hugo Hero Theme"
-    meta_og_type = "website"
-    meta_og_url = "https://hugo-hero.netlify.app"
-    meta_og_image = "https://raw.githubusercontent.com/JugglerX/hugo-hero-theme/master/images/tn.png"
-    meta_og_description = "Hero is a multipurpose Hugo theme with fullscreen hero images and page sections. It contains content types for a business or portfolio site."
-    meta_twitter_card = "summary"
-    meta_twitter_site = "@zerostaticio"
-    meta_twitter_creator = "@zerostaticio"
 
 [languages]
   [languages.nl]
     label = "Nederlands"
-    locale = "nl-be"
+    locale = "nl-BE"
     weight = 1
+    [languages.nl.params]
+      # Default text shown by Google when a page has no "description" of its own.
+      description = "Schaaklessen in Leuven voor kinderen, jongeren en volwassenen. Gestructureerde lessen in kleine groepen, van beginners tot gevorderden."
 
     [[languages.nl.menu.main]]
       name = "Schaaklessen"
-      url = "/schaaklessen/"
+      pageRef = "/schaaklessen"
       weight = 1
-
     [[languages.nl.menu.main]]
       name = "Over ons"
-      url = "/about/"
+      pageRef = "/about"
       weight = 2
-
     [[languages.nl.menu.main]]
       name = "Inschrijven"
-      url = "/inschrijven/"
+      pageRef = "/inschrijven"
       weight = 3
-
     [[languages.nl.menu.main]]
       name = "Contact"
-      url = "/contact/"
+      pageRef = "/contact"
       weight = 4
 
   [languages.en]
     label = "English"
-    locale = "en-us"
+    locale = "en-GB"
     weight = 2
+    [languages.en.params]
+      description = "Chess lessons in Leuven for children, teenagers and adults. Structured lessons in small groups, from beginners to advanced players."
 
     [[languages.en.menu.main]]
       name = "Chess Lessons"
-      url = "/en/schaaklessen/"
+      pageRef = "/schaaklessen"
       weight = 1
-
     [[languages.en.menu.main]]
       name = "About Us"
-      url = "/en/about/"
+      pageRef = "/about"
       weight = 2
-
     [[languages.en.menu.main]]
       name = "Sign Up"
-      url = "/en/inschrijven/"
+      pageRef = "/inschrijven"
       weight = 3
-
     [[languages.en.menu.main]]
       name = "Contact"
-      url = "/en/contact/"
+      pageRef = "/contact"
       weight = 4
-
-[permalinks]
-  post = "/:year/:month/:day/:slug/"
-  pages = "/:contentbasename/"
 
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
+      # Allows plain HTML inside the markdown texts.
       unsafe = true
+
+[imaging]
+  quality = 82

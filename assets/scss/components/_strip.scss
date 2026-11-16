@@ -1,0 +1,125 @@
+.strip {
+  background-repeat: no-repeat;
+}
+.strip-white {
+  background-color: white;
+}
+.strip-grey {
+  background-color: #f4f5fb;
+}
+.strip-diagonal {
+  transform: skewY(5deg);
+  padding-bottom: 50px;
+  margin-bottom: 65px;
+  > div {
+    transform: skewY(-5deg);
+  }
+}
+.strip-primary-gradient {
+  background-image: linear-gradient(to right, $primary, $secondary);
+}
+.strip-primary-gradient-top-bottom {
+  background-image: linear-gradient(to bottom, $primary, $secondary);
+}
+.strip-primary {
+  background-color: $primary;
+}
+.strip-secondary {
+  background-color: $secondary;
+}
+
+.strip-diagonal-right {
+  margin-top: -100px;
+  transform: skewY(-5deg);
+  padding-bottom: 100px;
+  > div {
+    transform: skewY(5deg);
+  }
+}
+
+.strip-diagonal-left {
+  margin-top: -100px;
+  transform: skewY(5deg);
+  padding-bottom: 100px;
+  > div {
+    transform: skewY(-5deg);
+  }
+}
+
+.homepage-row {
+  min-height: 420px;
+}
+
+.homepage-row-light {
+  background-color: #d1dff7;
+}
+.homepage-row-image {
+  margin-bottom: 3rem;
+}
+
+.homepage-row-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(4, 23, 83, 0.08);
+}
+
+.homepage-row-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.homepage-row-text .button {
+  display: inline-block;
+  width: auto;
+  align-self: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .homepage-row-text {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .homepage-row-text .button {
+    align-self: flex-start;
+  }
+  .homepage-row-image {
+    margin-bottom: 0;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .homepage-row-text {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.homepage-row .container {
+  min-height: inherit;
+}
+
+.homepage-row h2 {
+  margin-bottom: 1rem;
+}
+
+.homepage-row p,
+.homepage-row .content {
+  margin-bottom: 1.5rem;
+}
+
+.strip-bg-contain {
+  background-size: contain;
+}
+
+.strip-bg-cover {
+  background-size: cover;
+}
