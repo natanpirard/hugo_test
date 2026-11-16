@@ -6,6 +6,7 @@
 {{ if or $key hugo.IsServer }}
 <form class="contact-form" action="https://api.web3forms.com/submit" method="POST"
   data-success="{{ i18n "form_success" }}" data-error="{{ i18n "form_error" }}" data-sending="{{ i18n "form_sending" }}">
+  <h2>{{ i18n "form_title" }}</h2>
   {{ if not $key }}<p class="contact-form-warning">Preview only: add contactFormKey in data/contact.yaml to make this form work.</p>{{ end }}
   <input type="hidden" name="access_key" value="{{ $key }}">
   <input type="hidden" name="subject" value="{{ i18n "form_subject" }}">

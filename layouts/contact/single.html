@@ -1,32 +1,54 @@
-{{- /* Contact page. Email and address come from data/contact.yaml */ -}}
+{{- /*
+  Contact page.
+  Left: the text (content/contact/) and the contact form.
+  Right: contact details and map (from data/contact.yaml).
+  On phones the right column moves below the form.
+*/ -}}
 {{ define "body_classes" }}page-contact{{ end }}
 
 {{ define "main" }}
 {{ $c := hugo.Data.contact }}
 {{ partial "hero.html" (dict "page" .) }}
-<div class="container pt-10 pb-6">
+<div class="container pt-10 pb-12">
   <div class="row">
-    <div class="col-12 col-md-8">
+
+    <div class="col-12 col-lg-7 contact-main">
       {{ .Content }}
-      <ul>
-        {{ with $c.phone }}
-        <li><strong>{{ i18n "phone_label" }} </strong><a href="tel:{{ . }}">{{ . }}</a></li>
-        {{ end }}
-        {{ with $c.email }}
-        <li><strong>{{ i18n "email_label" }} </strong><a href="mailto:{{ . }}">{{ . }}</a></li>
-        {{ end }}
-        {{ with $c.address }}
-        <li><strong>{{ i18n "address_label" }} </strong><br>{{ .street }}<br>{{ .postalCode }} {{ .city }}</li>
-        {{ end }}
-      </ul>
       {{ partial "contact-form.html" . }}
-      {{ with $c.address }}
-      {{ $mapAddr := printf "%s, %s %s" .street .postalCode .city }}
-      <div class="map-embed">
-        <iframe src="https://www.google.com/maps?q={{ $mapAddr | urlquery }}&output=embed" title="Google Maps: {{ $mapAddr }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-      </div>
-      {{ end }}
     </div>
+
+    <div class="col-12 col-lg-5">
+      <aside class="contact-details">
+        <h2>{{ i18n "contact_details" }}</h2>
+        <ul class="contact-details-list">
+          {{ with $c.email }}
+          <li>
+            <span class="info-item-icon">{{ partial "icons/mail.html" . }}</span>
+            <div><strong>{{ i18n "email_label" }}</strong><br><a href="mailto:{{ . }}">{{ . }}</a></div>
+          </li>
+          {{ end }}
+          {{ with $c.phone }}
+          <li>
+            <span class="info-item-icon">{{ partial "icons/phone.html" . }}</span>
+            <div><strong>{{ i18n "phone_label" }}</strong><br><a href="tel:{{ . }}">{{ . }}</a></div>
+          </li>
+          {{ end }}
+          {{ with $c.address }}
+          <li>
+            <span class="info-item-icon">{{ partial "icons/location.html" . }}</span>
+            <div><strong>{{ i18n "address_label" }}</strong><br>{{ .street }}<br>{{ .postalCode }} {{ .city }}</div>
+          </li>
+          {{ end }}
+        </ul>
+        {{ with $c.address }}
+        {{ $mapAddr := printf "%s, %s %s" .street .postalCode .city }}
+        <div class="map-embed">
+          <iframe src="https://www.google.com/maps?q={{ $mapAddr | urlquery }}&output=embed" title="Google Maps: {{ $mapAddr }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        {{ end }}
+      </aside>
+    </div>
+
   </div>
 </div>
 {{ end }}

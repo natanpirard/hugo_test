@@ -44,3 +44,47 @@
   background: #fff3cd;
   color: #664d03;
 }
+
+// Contact page layout
+.contact-main {
+  margin-bottom: 3rem;
+  .contact-form h2 {
+    margin-bottom: 1.25rem;
+  }
+}
+
+.contact-details {
+  background-color: #f4f7fd;
+  border: 2px solid #eaeaea;
+  border-radius: 12px;
+  padding: 25px;
+  h2 {
+    margin-bottom: 1.25rem;
+  }
+  .map-embed {
+    margin-top: 1.5rem;
+    iframe {
+      aspect-ratio: 4 / 3;
+      border-radius: 8px;
+    }
+  }
+}
+
+.contact-details-list {
+  list-style: none;
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 1rem;
+    overflow-wrap: anywhere;
+  }
+  .info-item-icon {
+    width: 40px;
+    height: 40px;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

@@ -43,3 +43,8 @@ other = "Er ging iets mis bij het versturen. Probeer het opnieuw of mail ons rec
 other = "Nieuw bericht via het contactformulier"
 [form_privacy]
 other = "We gebruiken je gegevens enkel om op je bericht te antwoorden. Lees meer in onze [privacyverklaring]."
+
+[contact_details]
+other = "Contactgegevens"
+[form_title]
+other = "Stuur ons een bericht"
