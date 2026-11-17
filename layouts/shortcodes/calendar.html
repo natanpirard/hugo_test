@@ -1,0 +1,59 @@
+{{- /*
+  Write {{< calendar >}} in a markdown text to show the calendar.
+  The events come from data/calendar.yaml.
+  Without JavaScript only the list is shown; calendar.js adds the month view
+  and hides events that are already over.
+*/ -}}
+{{ $events := partial "calendar-events.html" .Page }}
+<div class="calendar" data-locale="{{ site.Language.Locale }}">
+
+  <div class="calendar-month" hidden>
+    <div class="calendar-header">
+      <button type="button" class="calendar-nav" data-step="-1" aria-label="{{ i18n "cal_prev" }}">‹</button>
+      <h2 class="calendar-title" aria-live="polite"></h2>
+      <button type="button" class="calendar-nav" data-step="1" aria-label="{{ i18n "cal_next" }}">›</button>
+    </div>
+    <button type="button" class="calendar-today-button">{{ i18n "cal_today" }}</button>
+    <div class="calendar-grid" role="grid"></div>
+    <ul class="calendar-legend">
+      <li><span class="calendar-dot is-lesson"></span>{{ i18n "cal_type_lesson" }}</li>
+      <li><span class="calendar-dot is-event"></span>{{ i18n "cal_type_event" }}</li>
+    </ul>
+    <div class="calendar-selected" hidden>
+      <h3 class="calendar-selected-title"></h3>
+      <p class="calendar-selected-empty" hidden>{{ i18n "cal_nothing_on_day" }}</p>
+      <ul class="calendar-list"></ul>
+    </div>
+  </div>
+
+  <div class="calendar-upcoming">
+    <h2>{{ i18n "cal_upcoming" }}</h2>
+    <p class="calendar-empty"{{ if $events }} hidden{{ end }}>{{ i18n "cal_nothing_planned" }}</p>
+    <ul class="calendar-list">
+      {{ range $events }}
+      {{ $d := time.AsTime .date }}
+      <li class="calendar-item is-{{ .type }}" data-date="{{ .date }}" data-start="{{ .start }}" data-title="{{ .title }}" data-type="{{ .type }}">
+        <div class="calendar-item-date" aria-hidden="true">
+          <span class="calendar-item-day">{{ $d.Day }}</span>
+          <span class="calendar-item-mon">{{ $d | time.Format "Jan" }}</span>
+        </div>
+        <div class="calendar-item-body">
+          <h3 class="calendar-item-title">{{ .title }}{{ with .series }} <span class="calendar-item-series">({{ i18n "cal_lesson" }} {{ . }})</span>{{ end }}</h3>
+          <p class="calendar-item-meta">
+            <time datetime="{{ .date }}{{ with .start }}T{{ . }}{{ end }}">{{ $d | time.Format ":date_full" }}</time>
+            {{- with .start }} · {{ . }}{{ end -}}
+            {{- if and .start .end }}–{{ .end }}{{ end -}}
+            {{- with .location }}<br>{{ . }}{{ end }}
+          </p>
+          {{ with .description }}<div class="calendar-item-text">{{ . }}</div>{{ end }}
+        </div>
+      </li>
+      {{ end }}
+    </ul>
+    <button type="button" class="button calendar-more" aria-expanded="false" hidden
+      data-more="{{ i18n "cal_show_more" }}" data-less="{{ i18n "cal_show_less" }}"></button>
+  </div>
+</div>
+{{ with resources.Get "js/calendar.js" }}
+<script src="{{ (. | minify | fingerprint).RelPermalink }}" defer></script>
+{{ end }}

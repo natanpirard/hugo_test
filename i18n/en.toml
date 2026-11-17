@@ -48,3 +48,26 @@ other = "We only use your details to reply to your message. Read more in our [pr
 other = "Contact details"
 [form_title]
 other = "Send us a message"
+
+[cal_prev]
+other = "Previous month"
+[cal_next]
+other = "Next month"
+[cal_today]
+other = "Go to today"
+[cal_upcoming]
+other = "Upcoming activities"
+[cal_nothing_planned]
+other = "There are no activities planned at the moment."
+[cal_nothing_on_day]
+other = "No activities on this day."
+[cal_type_lesson]
+other = "Lesson"
+[cal_type_event]
+other = "Event"
+[cal_lesson]
+other = "lesson"
+[cal_show_more]
+other = "Show all activities ({count})"
+[cal_show_less]
+other = "Show less"

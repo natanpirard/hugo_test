@@ -1,0 +1,51 @@
+# =============================================================================
+#  CALENDAR - all events and lessons shown on the "Kalender" page.
+#
+#  Tips:
+#  - Dates are written as year-month-day: 2026-12-05
+#  - Times are written between quotes: "17:30"
+#  - Fields ending in _en are the English version. If you leave them out,
+#    the Dutch text is also used on the English page.
+#  - "type" is "lesson" (blue) or "event" (orange).
+#  - Past events are hidden automatically; you don't have to remove them.
+#  - Lines starting with # are comments and are ignored.
+# =============================================================================
+
+
+# -----------------------------------------------------------------------------
+#  SINGLE EVENTS (happen once)
+#  Copy the example below (remove the # signs) and fill it in.
+# -----------------------------------------------------------------------------
+events:
+  # - title: "Kersttornooi"
+  #   title_en: "Christmas tournament"
+  #   type: event
+  #   date: 2026-12-19
+  #   start: "14:00"
+  #   end: "17:00"
+  #   location: "Diestsesteenweg 49, 3010 Leuven"
+  #   description: "Een gezellig tornooi voor alle leerlingen. Inschrijven via info@growthroughchess.com."
+  #   description_en: "A friendly tournament for all students. Sign up via info@growthroughchess.com."
+
+
+# -----------------------------------------------------------------------------
+#  REPEATING EVENTS (e.g. a series of lessons)
+#  "first" = date of the first lesson, "last" = date of the last lesson.
+#  "repeat" = weekly (every week) or biweekly (every 2 weeks).
+#  "skip" = dates without a lesson (holidays, ...). Lessons are numbered
+#  automatically (1/10, 2/10, ...).
+#  Instead of "last" you can also write "count: 10" (number of lessons).
+# -----------------------------------------------------------------------------
+series:
+  - title: "Schaakles"
+    title_en: "Chess lesson"
+    type: lesson
+    first: 2026-10-21
+    last: 2026-12-23
+    repeat: weekly
+    start: "17:30"
+    end: "18:30"
+    location: "Diestsesteenweg 49, 3010 Leuven"
+    description: "Wekelijkse schaakles in groep."
+    description_en: "Weekly group chess lesson."
+    skip: []

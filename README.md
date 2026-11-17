@@ -22,10 +22,12 @@ content/                  ← ALL TEXTS OF THE WEBSITE
 ├── schaaklessen/         "Schaaklessen" page (text + information blocks)
 ├── about/                "Over ons" page (text + teachers)
 ├── inschrijven/          "Inschrijven" page (text + Google Form)
+├── kalender/             "Kalender" page (text; the events are in data/calendar.yaml)
 └── contact/              "Contact" page (text)
 
 assets/images/            ← ALL IMAGES (photos, logo, backgrounds)
 data/contact.yaml         ← Email, address and Facebook link (used everywhere)
+data/calendar.yaml        ← Events and lessons shown on the Kalender page
 config.toml               ← Site name, menu, default Google description
 i18n/                     ← Small fixed words ("Adres:", "Pagina niet gevonden", ...)
 
@@ -122,6 +124,46 @@ Tip: avoid spaces in file names.
 Edit `data/contact.yaml`. This updates the contact page, the map, the footer
 and the information for Google at once.
 (The address is also written in the "Locatie?" block on the Schaaklessen page.)
+
+### Add events and lessons to the calendar
+Everything is in `data/calendar.yaml`; the file itself contains instructions.
+
+A **single event** goes under `events:`:
+
+```yaml
+  - title: "Kersttornooi"
+    title_en: "Christmas tournament"
+    type: event
+    date: 2026-12-19
+    start: "14:00"
+    end: "17:00"
+    location: "Diestsesteenweg 49, 3010 Leuven"
+    description: "Een gezellig tornooi voor alle leerlingen."
+    description_en: "A friendly tournament for all students."
+```
+
+A **repeating series** (e.g. 10 lessons) goes under `series:`. You write it
+once; every lesson appears in the calendar automatically, numbered 1/10, 2/10, …
+
+```yaml
+  - title: "Schaakles"
+    title_en: "Chess lesson"
+    type: lesson
+    first: 2026-10-21      # first lesson
+    last: 2026-12-23       # last lesson (or: count: 10)
+    repeat: weekly         # weekly or biweekly
+    start: "17:30"
+    end: "18:30"
+    location: "Diestsesteenweg 49, 3010 Leuven"
+    skip: [2026-11-11]     # dates without a lesson (optional)
+```
+
+- Write dates as year-month-day and put times between quotes.
+- `type` is `lesson` (blue) or `event` (orange).
+- Fields ending in `_en` are for the English page; without them the Dutch
+  text is used.
+- Past events disappear from the list automatically, so you never need to
+  clean up.
 
 ### The contact form
 Messages sent through the form on the contact page are emailed to us by

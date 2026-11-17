@@ -1,0 +1,69 @@
+{{- /*
+  Reads data/calendar.yaml and returns every occurrence as a list, sorted by
+  date and time. Repeating series are expanded into separate lessons.
+  Each item: date, start, end, title, description (HTML), location, type, series.
+*/ -}}
+{{- $page := . -}}
+{{- $lang := site.Language.Lang -}}
+{{- $data := hugo.Data.calendar -}}
+{{- $all := slice -}}
+
+{{- /* Picks the text in the current language, e.g. title_en, else title */ -}}
+{{- define "_partials/calendar-text" -}}
+  {{- $v := index .item (printf "%s_%s" .field .lang) | default (index .item .field) -}}
+  {{- return (printf "%v" ($v | default "")) -}}
+{{- end -}}
+
+{{- $items := slice -}}
+{{- range $data.events -}}
+  {{- $items = $items | append (dict "item" . "dates" (slice ((time.AsTime .date).Format "2006-01-02")) "defaultType" "event") -}}
+{{- end -}}
+
+{{- range $data.series -}}
+  {{- $s := . -}}
+  {{- $first := time.AsTime $s.first -}}
+  {{- $step := cond (eq $s.repeat "biweekly") 14 7 -}}
+  {{- $skip := slice -}}
+  {{- range $s.skip }}{{ $skip = $skip | append ((time.AsTime .).Format "2006-01-02") }}{{ end -}}
+  {{- $dates := slice -}}
+  {{- if or $s.last $s.count -}}
+    {{- range $i := seq 0 520 -}}
+      {{- if and $s.count (ge (len $dates) (int $s.count)) }}{{ break }}{{ end -}}
+      {{- $d := $first.AddDate 0 0 (mul $i $step) -}}
+      {{- if and $s.last ($d.After (time.AsTime $s.last)) }}{{ break }}{{ end -}}
+      {{- $ds := $d.Format "2006-01-02" -}}
+      {{- if not (in $skip $ds) }}{{ $dates = $dates | append $ds }}{{ end -}}
+    {{- end -}}
+  {{- else -}}
+    {{- errorf "calendar.yaml: the series %q needs a \"last\" date or a \"count\"" $s.title -}}
+  {{- end -}}
+  {{- $items = $items | append (dict "item" $s "dates" $dates "defaultType" "lesson" "isSeries" true) -}}
+{{- end -}}
+
+{{- range $items -}}
+  {{- $it := .item -}}
+  {{- $title := partial "calendar-text" (dict "item" $it "field" "title" "lang" $lang) -}}
+  {{- $desc := partial "calendar-text" (dict "item" $it "field" "description" "lang" $lang) -}}
+  {{- $location := partial "calendar-text" (dict "item" $it "field" "location" "lang" $lang) -}}
+  {{- $descHTML := "" -}}
+  {{- with $desc }}{{ $descHTML = $page.RenderString (dict "display" "block") . }}{{ end -}}
+  {{- $start := printf "%v" ($it.start | default "") -}}
+  {{- $total := len .dates -}}
+  {{- $isSeries := .isSeries -}}
+  {{- $type := $it.type | default .defaultType -}}
+  {{- range $n, $date := .dates -}}
+    {{- $all = $all | append (dict
+      "date" $date
+      "start" $start
+      "end" (printf "%v" ($it.end | default ""))
+      "title" $title
+      "description" $descHTML
+      "location" $location
+      "type" $type
+      "series" (cond $isSeries (printf "%d/%d" (add $n 1) $total) "")
+      "sortKey" (printf "%s %s" $date $start)
+    ) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return (sort $all "sortKey") -}}

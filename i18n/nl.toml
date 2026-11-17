@@ -48,3 +48,26 @@ other = "We gebruiken je gegevens enkel om op je bericht te antwoorden. Lees mee
 other = "Contactgegevens"
 [form_title]
 other = "Stuur ons een bericht"
+
+[cal_prev]
+other = "Vorige maand"
+[cal_next]
+other = "Volgende maand"
+[cal_today]
+other = "Naar vandaag"
+[cal_upcoming]
+other = "Komende activiteiten"
+[cal_nothing_planned]
+other = "Er zijn momenteel geen activiteiten gepland."
+[cal_nothing_on_day]
+other = "Geen activiteiten op deze dag."
+[cal_type_lesson]
+other = "Les"
+[cal_type_event]
+other = "Evenement"
+[cal_lesson]
+other = "les"
+[cal_show_more]
+other = "Toon alle activiteiten ({count})"
+[cal_show_less]
+other = "Toon minder"
