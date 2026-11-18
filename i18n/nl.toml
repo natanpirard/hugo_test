@@ -71,3 +71,8 @@ other = "les"
 other = "Toon alle activiteiten ({count})"
 [cal_show_less]
 other = "Toon minder"
+
+[form_choose]
+other = "Kies een inschrijvingsformulier"
+[cal_register]
+other = "Schrijf je in"

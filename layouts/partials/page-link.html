@@ -1,13 +1,17 @@
 {{- /*
-  Turns a link from the front matter ("inschrijven", "about", "https://...")
-  into a working URL in the current language.
+  Turns a link from the front matter ("inschrijven", "about",
+  "inschrijven#schaaknamiddag", "https://...") into a working URL in the
+  current language.
 */ -}}
 {{- $link := . -}}
 {{- $url := $link -}}
-{{- if not (or (hasPrefix $link "http") (hasPrefix $link "mailto:")) -}}
-  {{- $p := site.GetPage (printf "/%s" (strings.Trim $link "/")) -}}
+{{- if not (or (hasPrefix $link "http") (hasPrefix $link "mailto:") (hasPrefix $link "#")) -}}
+  {{- $parts := split $link "#" -}}
+  {{- $path := index $parts 0 -}}
+  {{- $hash := cond (gt (len $parts) 1) (printf "#%s" (index $parts 1)) "" -}}
+  {{- $p := site.GetPage (printf "/%s" (strings.Trim $path "/")) -}}
   {{- if $p -}}
-    {{- $url = $p.RelPermalink -}}
+    {{- $url = printf "%s%s" $p.RelPermalink $hash -}}
   {{- else -}}
     {{- $url = $link | relLangURL -}}
   {{- end -}}

@@ -7,6 +7,8 @@
 #  - Fields ending in _en are the English version. If you leave them out,
 #    the Dutch text is also used on the English page.
 #  - "type" is "lesson" (blue) or "event" (orange).
+#  - "registration" (optional) adds a sign-up button, e.g.
+#    "inschrijven#schaaknamiddag" opens that form on the Inschrijven page.
 #  - Past events are hidden automatically; you don't have to remove them.
 #  - Lines starting with # are comments and are ignored.
 # =============================================================================
@@ -27,7 +29,16 @@ events:
   #   description: "Een gezellig tornooi voor alle leerlingen. Inschrijven via info@growthroughchess.com."
   #   description_en: "A friendly tournament for all students. Sign up via info@growthroughchess.com."
 
-
+  - title: "Open schaaknamiddag"
+    title_en: "Open chess afternoon"
+    type: event
+    date: 2026-11-28
+    start: "14:00"
+    end: "16:00"
+    location: "Hal 5: Diestsesteenweg 104, 3010 Leuven"
+    description: "Iedereen is welkom om een partijtje te komen schaken, en een schaakles bij te wonen. Geniet ook van een gratis drankje!"
+    description_en: "Everyone is welcome to play a game of chess and attend a chess lesson. Enjoy a free drink as well!"
+    registration: "inschrijven#schaaknamiddag"
 # -----------------------------------------------------------------------------
 #  REPEATING EVENTS (e.g. a series of lessons)
 #  "first" = date of the first lesson, "last" = date of the last lesson.

@@ -172,8 +172,23 @@ Messages sent through the form on the contact page are emailed to us by
 for. If the key is empty, the form is hidden on the live website (with
 `hugo server` you still see a preview).
 
-### Change the registration form
-In `content/inschrijven/index.nl.md` (and `.en.md`), change the link after `form:`.
+### Registration forms (Inschrijven page)
+The forms are listed under `forms:` in `content/inschrijven/index.nl.md` (and
+`.en.md`). Visitors choose one with the buttons at the top. To add a form for a
+new event, copy a block and change it:
+
+```yaml
+  - id: "kersttornooi"                 # short name, no spaces, same in NL and EN
+    label: "Kersttornooi"              # text on the button
+    info: "Zaterdag 19 december"       # small text under it (optional)
+    until: 2026-12-19                  # hidden automatically after this day (optional)
+    text: "Schrijf je in voor ..."     # text above the form (optional)
+    form: "https://docs.google.com/forms/..."
+```
+
+To add a "Schrijf je in" button to the event in the calendar, add
+`registration: "inschrijven#kersttornooi"` to the event in `data/calendar.yaml`
+(use the same `id`).
 
 ### Add a block on the home page
 Copy a file in `content/homepage/` (both languages), give it a new name and

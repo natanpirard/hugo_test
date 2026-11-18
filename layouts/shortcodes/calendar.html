@@ -46,6 +46,7 @@
             {{- with .location }}<br>{{ . }}{{ end }}
           </p>
           {{ with .description }}<div class="calendar-item-text">{{ . }}</div>{{ end }}
+          {{ with .registration }}<a class="button calendar-item-register" href="{{ partial "page-link.html" . }}">{{ i18n "cal_register" }}</a>{{ end }}
         </div>
       </li>
       {{ end }}

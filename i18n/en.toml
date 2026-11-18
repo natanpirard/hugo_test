@@ -71,3 +71,8 @@ other = "lesson"
 other = "Show all activities ({count})"
 [cal_show_less]
 other = "Show less"
+
+[form_choose]
+other = "Choose a registration form"
+[cal_register]
+other = "Sign up"

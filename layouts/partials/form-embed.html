@@ -1,6 +1,38 @@
-{{- /* Embedded (Google) form (front matter: form) */ -}}
-{{ with .Params.form }}
-<div class="form-embed">
-  <iframe src="{{ . }}" title="{{ $.Title }}" width="640" height="1200" loading="lazy">{{ i18n "loading" }}</iframe>
+{{- /*
+  Embedded (Google) forms.
+  - One form:      front matter "form: <link>"
+  - Several forms: front matter "forms:" list. Visitors choose a form with the
+    buttons at the top (form-chooser.js); the others stay hidden.
+*/ -}}
+{{ $forms := .Params.forms }}
+{{ if not $forms }}{{ with .Params.form }}{{ $forms = slice (dict "form" .) }}{{ end }}{{ end }}
+{{ with $forms }}
+{{ $multiple := gt (len .) 1 }}
+<div class="form-chooser">
+  {{ if $multiple }}
+  <div class="form-tabs" role="tablist" aria-label="{{ i18n "form_choose" }}" hidden>
+    {{ range $i, $f := . }}
+    <button type="button" role="tab" class="form-tab" id="tab-{{ .id }}" aria-controls="{{ .id }}"
+      aria-selected="{{ eq $i 0 }}"{{ with .until }} data-until="{{ (time.AsTime .).Format "2006-01-02" }}"{{ end }}>
+      <span class="form-tab-label">{{ .label }}</span>
+      {{ with .info }}<span class="form-tab-info">{{ . }}</span>{{ end }}
+    </button>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  {{ range . }}
+  <section class="form-panel"{{ with .id }} id="{{ . }}" aria-labelledby="tab-{{ . }}"{{ end }}{{ if $multiple }} role="tabpanel"{{ end }}>
+    {{ if $multiple }}<h2 class="form-panel-title">{{ .label }}</h2>{{ end }}
+    {{ with .text }}<p class="form-panel-text">{{ $.RenderString . }}</p>{{ end }}
+    <div class="form-embed">
+      <iframe src="{{ .form }}" title="{{ .label | default $.Title }}" width="640" height="1200" loading="lazy">{{ i18n "loading" }}</iframe>
+    </div>
+  </section>
+  {{ end }}
 </div>
+{{ if $multiple }}
+{{ $js := resources.Get "js/form-chooser.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" defer></script>
+{{ end }}
 {{ end }}

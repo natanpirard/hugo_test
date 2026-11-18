@@ -60,6 +60,7 @@
       "description" $descHTML
       "location" $location
       "type" $type
+      "registration" (printf "%v" ($it.registration | default ""))
       "series" (cond $isSeries (printf "%d/%d" (add $n 1) $total) "")
       "sortKey" (printf "%s %s" $date $start)
     ) -}}

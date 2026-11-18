@@ -20,3 +20,73 @@
     border: none;
   }
 }
+
+// Choice between several registration forms (Inschrijven page)
+.form-chooser {
+  max-width: 700px;
+  margin: 2.5rem auto 0;
+  .form-embed {
+    margin-top: 1.5rem;
+  }
+}
+
+.form-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.form-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 14px 18px;
+  border: 2px solid #eaeaea;
+  border-radius: 12px;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+  &:hover {
+    border-color: $primary;
+  }
+  &:focus-visible {
+    outline: 3px solid rgba($primary, 0.35);
+    outline-offset: 2px;
+  }
+  &[aria-selected="true"] {
+    border-color: $primary;
+    background: $primary;
+    .form-tab-label,
+    .form-tab-info {
+      color: #fff;
+    }
+  }
+}
+
+.form-tab-label {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.form-tab-info {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+// With the buttons active, the title above each form is only for screen readers
+.form-chooser.is-enhanced .form-panel-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.form-chooser:not(.is-enhanced) .form-panel + .form-panel {
+  margin-top: 3rem;
+}
