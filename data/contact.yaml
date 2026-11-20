@@ -21,3 +21,6 @@ social:
   - name: Facebook
     link: https://www.facebook.com/profile.php?id=61592850834189
     icon: images/icons/facebook.svg
+  - name: Instagram
+    link: https://www.instagram.com/growthroughchess/
+    icon: images/icons/instagram.svg
